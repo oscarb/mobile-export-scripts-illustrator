@@ -20,27 +20,27 @@ var selectedExportOptions = {};
 var androidExportOptions = [
     {
         name: "mdpi",
-        scaleFactor: 50,
+        scaleFactor: 25,
         type: "android"
     },
     {
         name: "hdpi",
-        scaleFactor: 75,
+        scaleFactor: 37.5,
         type: "android"
     },
     {
         name: "xhdpi",
-        scaleFactor: 100,
+        scaleFactor: 50,
         type: "android"
     },
     {
         name: "xxhdpi",
-        scaleFactor: 150,
+        scaleFactor: 75,
         type: "android"
     },
     {
         name: "xxxhdpi",
-        scaleFactor: 200,
+        scaleFactor: 100,
         type: "android"
     }
 ];
@@ -97,7 +97,7 @@ if(document && folder) {
 function exportToFile(scaleFactor, resIdentifier, os) {
     var i, ab, file, options, expFolder;
     if(os === "android")
-        expFolder = new Folder(folder.fsName + "/drawable-" + resIdentifier);
+        expFolder = new Folder(folder.fsName + "/mipmap-" + resIdentifier);
     else if(os === "ios")
         expFolder = new Folder(folder.fsName + "/iOS");
 
@@ -113,7 +113,7 @@ function exportToFile(scaleFactor, resIdentifier, os) {
             continue;
         
         if(os === "android")
-            file = new File(expFolder.fsName + "/" + ab.name + ".png");
+            file = new File(expFolder.fsName + "/ic_launcher.png");
         else if(os === "ios")
             file = new File(expFolder.fsName + "/" + ab.name + resIdentifier + ".png");
             
